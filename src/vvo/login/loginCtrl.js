@@ -10,7 +10,7 @@ app.controller('loginCtrl', function($http, $location) {
 	lCtrl.errorMessage = undefined;
 	lCtrl.onClickLink = function(department) {};
 	lCtrl.onLogin = function() {
-
+		var payload = JSON.stringify({"loginName":lCtrl.formData.loginName,"password":lCtrl.formData.password,"clientKey":"VVO"});
 		$http({
 			method : "POST",
 			url : " http://localhost:3606/vvo/webservice/auth/doLogin",
