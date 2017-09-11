@@ -6,6 +6,8 @@ app.controller('loginCtrl', function($http, $location) {
 		'loginName' : '',
 		'password' : ''
 	};
+	
+	var errorMsg = '';
 
 	lCtrl.errorMessage = undefined;
 	lCtrl.onClickLink = function(department) {};
@@ -19,10 +21,8 @@ app.controller('loginCtrl', function($http, $location) {
 				'Content-Type' : 'application/json'
 			}
 		}).then(function mySuccess(response) {
-			//			       console.log("-----------"+JSON.stringify(response));
 			if (response && response.data) {
 				if (response.data.errorCode) {
-					//$location.path('/dashboard');
 					if(response.data.errorCode.trim() !== '0')
 						lCtrl.errorMessage = response.data.errorText;
 					else

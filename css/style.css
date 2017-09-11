@@ -1,0 +1,159 @@
+
+
+html{
+	background: #fff ;
+	height: 100%;
+}
+
+body{
+	background: linear-gradient(center top , #FFF 0%, #EDEDED 100%); /* W3C */
+	background: -moz-linear-gradient(center top , #FFF 0%, #EDEDED 100%); /* FF3.6+ */
+	background: -webkit-linear-gradient(top, #FFF 0%, #EDEDED 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(center top , #FFF 0%, #EDEDED 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #FFF 0%, #EDEDED 100%); /* IE10+ */
+	font-family: ProximaNovaLight;
+	height: 100%;
+}
+
+/* Fonts */
+@font-face {
+font-family: ProximaNovaBold;
+src: url(../fonts/proximanova_bold.otf),
+     url(../fonts/proximanova-bold-webfont.svg) format('svg');	
+}
+@font-face {
+font-family: ProximaNovaRegular;
+src: url(../fonts/proximanova_regular.otf),
+     url(../fonts/proximanova-regular-webfont.svg) format('svg');
+}
+@font-face {
+font-family: ProximaNovaLight;
+src: url(../fonts/proximanova_light.otf),
+     url(../fonts/proximanova-light-webfont.svg) format('svg');
+}
+@font-face {
+font-family: TimesNewRomanItalic;
+src: url(../fonts/times_new_roman_italic.ttf),
+     url(../fonts/times-italic-webfont.svg) format('svg');
+}
+/* End Fonts */
+
+table, tr, td{
+	background-color: transparent;
+	background: transparent;
+	height: 32px;
+}
+
+
+
+#navigation, #slideHeadline, #holder, #footer{
+	/*width: 60%;
+Set the margin-left and margin-right automatically set
+    margin: 0 auto; */
+}
+#container{}
+#navigation{}
+#slideHeadline{}
+#holder{}
+
+.bold{
+	font-family: ProximaNovaBold;
+}
+
+.header1{
+
+	color: OrangeRed;
+	font-size: 35px;
+}
+.button1{
+ height: 30px;
+ width: 30px;
+}
+.button2{
+ height: 20px;
+ width: 20px;
+}
+
+.textBox{
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.textMargin{
+	margin: 20px;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+md-toolbar {
+    background: #fafafa !important;
+    border-bottom: 1px solid #000;
+    height: 115px;
+}
+.login-header {
+    background: rgb(63, 81, 181) !important;
+    height: 65px;
+    
+}
+.sidenavStyle {
+    background: black;
+}
+md-sidenav#leftSideNav {
+    background: #ddd;
+}
+.sidenav-content{
+	background: #ddd;
+}
+.sidenav-toolbar{
+	background: #ddd !important;
+}
+.md-button.md-default-theme:not([disabled]).md-focused, .md-button:not([disabled]).md-focused, .md-button.md-default-theme:not([disabled]):hover, .md-button:not([disabled]):hover {
+    background-color: transparent;
+}
+
