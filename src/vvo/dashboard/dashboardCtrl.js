@@ -1,17 +1,17 @@
 'use strict';
-app.controller('dashboardCtrl', function ($scope, $mdSidenav) {
-    $scope.toShow = "home";
-  
-    $scope.toggleLeft = function() {
-        $mdSidenav("left")
-          .toggle();
-    };
-    
-    $scope.close = function () {
-      $mdSidenav('left').close();
-    };
+app.controller('dashboardCtrl', function($scope, $mdSidenav) {
+	var dbCtrl = this;
+	dbCtrl.toShow = "home";
 
-    $scope.show = function (toShow) {
-      $scope.toShow = toShow;
-    };
+	dbCtrl.init = function() {
+		isShowMenuIcon = true;
+	}
+	
+	dbCtrl.close = function() {
+		$mdSidenav('left').close();
+	};
+
+	dbCtrl.show = function(toShow) {
+		dbCtrl.toShow = toShow;
+	};
 });

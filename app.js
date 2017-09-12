@@ -1,8 +1,7 @@
 'use strict';
 
 var app = angular.module('StarterApp', [ 'ngMaterial', 'ngMdIcons', 'ngRoute' ]);
-
-
+var isShowMenuIcon = false;
 app.config([ '$locationProvider', function($locationProvider) {
 	$locationProvider.hashPrefix('');
 } ]);
@@ -26,6 +25,4 @@ app.config([ '$routeProvider',
 			}).otherwise({
 			redirectTo : 'login'
 		});
-
-
-	} ]);
+	}]);

@@ -134,7 +134,7 @@ Set the margin-left and margin-right automatically set
 md-toolbar {
     background: #fafafa !important;
     border-bottom: 1px solid #000;
-    height: 115px;
+    height: 12%;
 }
 .login-header {
     background: rgb(63, 81, 181) !important;
