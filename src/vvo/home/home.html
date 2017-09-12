@@ -14,32 +14,6 @@
                                aria-invalid="false">
                     </md-input-container>
                 </div>
-                <div layout="row" layout-align="start center">
-                    <md-datepicker ng-model="dateFrom"
-                                   md-placeholder="From Date"
-                                   is-open="dateFromOpened"
-                                   ng-click="dateFromOpened = true"
-                                   filter-by="placed"
-                                   filter-type="dateFrom"
-                                   ng-change="gridActions.filter()">
-                    </md-datepicker>
-                </div>
-                <div layout="row" layout-align="start center">
-                    <md-datepicker ng-model="dateTo"
-                                   md-placeholder="To Date"
-                                   is-open="dateToOpened"
-                                   ng-click="dateToOpened = true"
-                                   filter-by="placed"
-                                   filter-type="dateTo"
-                                   ng-change="gridActions.filter()">
-                    </md-datepicker>
-                </div>
-                <div layout="row" layout-align="start center">
-                    <md-button ng-show="dateTo || dateFrom"
-                               class="md-raised md-primary"
-                               ng-click="dateTo = ''; dateFrom = ''; gridActions.refresh();">Clear Dates
-                    </md-button>
-                </div>
             </div>
             <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
                 <div layout-gt-sm="row" layout-sm="column" layout-align="center">

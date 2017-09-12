@@ -25,4 +25,6 @@ app.config([ '$routeProvider',
 			}).otherwise({
 			redirectTo : 'login'
 		});
-	}]);
+}]);
+
+app.factory('WSFactory',callService);
