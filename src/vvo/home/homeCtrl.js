@@ -1,17 +1,22 @@
 'use strict';
-app.controller('dashboardCtrl', function ($scope, $mdSidenav) {
-    $scope.toShow = "home";
-  
-    $scope.toggleLeft = function() {
-        $mdSidenav("left")
-          .toggle();
-    };
-    
-    $scope.close = function () {
-      $mdSidenav('left').close();
-    };
+app.controller('homeCtrl', ['$scope', 'myAppFactory', function ($scope, myAppFactory) {
 
-    $scope.show = function (toShow) {
-      $scope.toShow = toShow;
+    $scope.gridOptions = {
+        data: [],
+        urlSync: false
     };
+    myAppFactory.getData().then(function (responseData) {
+        $scope.gridOptions.data = responseData.data;
+    })
+
+}])
+.factory('myAppFactory', function ($http) {
+    return {
+        getData: function () {
+            return $http({
+                method: 'GET',
+                url: 'https://angular-data-grid.github.io/demo/data.json'
+            });
+        }
+    }
 });

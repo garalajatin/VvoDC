@@ -1,10 +1,10 @@
 'use strict';
 
-var app = angular.module('StarterApp', [ 'ngMaterial', 'ngMdIcons', 'ngRoute' ]);
+var app = angular.module('StarterApp', [ 'ngMaterial', 'ngMdIcons', 'ngRoute','dataGrid', 'pagination']);
 var isShowMenuIcon = false;
 app.config([ '$locationProvider', function($locationProvider) {
 	$locationProvider.hashPrefix('');
-} ]);
+}]);
 
 app.config([ '$routeProvider',
 

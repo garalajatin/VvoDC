@@ -17,6 +17,9 @@
 	</md-sidenav>
     <md-content flex="" layout-padding="" layout="column" layout-align="top center">
       <div ng-switch="dbCtrl.toShow">
+      	<div ng-switch-when="dashboard">
+      		<div ng-include="'src/vvo/home/home.html'"></div>
+      	</div>
         <div ng-switch-when="home">
           <div ng-include="'partial/form.html'"></div>
         </div>

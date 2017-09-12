@@ -1,39 +1,134 @@
-<div ng-controller="loginCtrl" layout="column" style="height:500px;" ng-cloak="" class="sidenavdemoBasicUsage">
-<md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
-      	<md-button ng-click="toggleLeft()"  >
-		   <img class="png-icon" src="media/menu.png" >
-		</md-button>
-      <!-- <md-icon aria-label="Menu" ng-click="toggleLeft()" class="material-icons">menu</md-icon> -->
-       <!-- <md-button ng-click="toggleLeft()" class="md-primary"><i class="material-icons">reorder</i></md-button> -->
-      
-        <h2 flex md-truncate>Toolbard </h2>
-      </div>
-    </md-toolbar>
-  <section layout="row" flex="">
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" id="leftSideNav" md-disable-backdrop="true">
-      <md-toolbar class="sidenav-toolbar" layout="row" >
-        <h1 class="md-toolbar-tools">Sidenav Left</h1>
-        <span flex></span>
-        <md-button ng-click="close()"  >
-		   <img src="media/close.png" >
-		</md-button>
-      </md-toolbar>
-      <md-content layout-padding="" layout="column" layout-align="start start" class="sidenav-content">
-        <md-button ng-click="show('home')" class="md-primary">Show Home</md-button>
-        <md-button ng-click="show('work')" class="md-primary">Show Work</md-button>
-      </md-content>
-    </md-sidenav>
-
-    <md-content flex="" layout-padding="" layout="column" layout-align="top center">
-      <div ng-switch="toShow">
-        <div ng-switch-when="home">
-          <div ng-include="'partial/form.html'"></div>
+<div ng-controller="homeCtrl" layout="column" layout-fill>
+    <div layout-padding layout="row" layout-align="center">
+        <div flex-gt-md="60" flex-md="80" flex-xs="100">
+            <div layout-gt-xs="row" layout-xs="column" layout-align="stretch center">
+                <div layout="row" layout-align="start center">
+                    <md-input-container md-no-float md-is-error="false" class="md-block">
+                        <input ng-model="code"
+                               class="md-input"
+                               ng-change="gridActions.filter()"
+                               id="order"
+                               placeholder="Search by Order #"
+                               filter-by="code"
+                               filter-type="text"
+                               aria-invalid="false">
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-align="start center">
+                    <md-datepicker ng-model="dateFrom"
+                                   md-placeholder="From Date"
+                                   is-open="dateFromOpened"
+                                   ng-click="dateFromOpened = true"
+                                   filter-by="placed"
+                                   filter-type="dateFrom"
+                                   ng-change="gridActions.filter()">
+                    </md-datepicker>
+                </div>
+                <div layout="row" layout-align="start center">
+                    <md-datepicker ng-model="dateTo"
+                                   md-placeholder="To Date"
+                                   is-open="dateToOpened"
+                                   ng-click="dateToOpened = true"
+                                   filter-by="placed"
+                                   filter-type="dateTo"
+                                   ng-change="gridActions.filter()">
+                    </md-datepicker>
+                </div>
+                <div layout="row" layout-align="start center">
+                    <md-button ng-show="dateTo || dateFrom"
+                               class="md-raised md-primary"
+                               ng-click="dateTo = ''; dateFrom = ''; gridActions.refresh();">Clear Dates
+                    </md-button>
+                </div>
+            </div>
+            <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
+                <div layout-gt-sm="row" layout-sm="column" layout-align="center">
+                    <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
+                        <span>{{filtered.length}} items total</span>
+                    </div>
+                    <div flex-gt-sm="75" flex-xs="100">
+                        <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                            <grid-pagination max-size="5"
+                                             boundary-links="true"
+                                             class="pagination mdl-shadow--2dp"
+                                             ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
+                                             total-items="paginationOptions.totalItems"
+                                             ng-model="paginationOptions.currentPage"
+                                             ng-change="reloadGrid()"
+                                             items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                            <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                                <md-select ng-init="paginationOptions.itemsPerPage = '10'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()">
+                                    <md-option ng-value="10">10</md-option>
+                                    <md-option ng-value="25">25</md-option>
+                                    <md-option ng-value="50">50</md-option>
+                                    <md-option ng-value="75">75</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                        <thead>
+                        <tr>
+                            <th sortable="code" class="sortable mdl-data-table__cell--non-numeric">
+                                <span>Order #</span>
+                                <span class="arrow"></span>
+                            </th>
+                            <th class="st-sort-disable th-dropdown">
+                                <md-select filter-by="statusDisplay"
+                                           filter-type="select"
+                                           ng-model="status"
+                                           placeholder="Status"
+                                           ng-change="filter()">
+                                    <md-option value="">All Statuses</md-option>
+                                    <md-option ng-repeat="option in statusOptions track by option.value"
+                                               value="{{option.value}}">
+                                        {{option.text}}
+                                    </md-option>
+                                </md-select>
+                            </th>
+                            <th sortable="placed" class="sortable">
+                                <span>Date Placed</span>
+                                <span class="arrow"></span>
+                            </th>
+                            <th sortable='total.value' class="sortable">
+                                <span>Total</span>
+                                <span class="arrow"></span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr grid-item>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <span ng-bind="item.code"></span>
+                            </td>
+                            <td ng-bind="item.statusDisplay"></td>
+                            <td ng-bind="item.placed | date:'MM/dd/yyyy'"></td>
+                            <td ng-bind="item.total.formattedValue"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                    <grid-pagination max-size="5"
+                                     boundary-links="true"
+                                     class="pagination"
+                                     ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
+                                     total-items="paginationOptions.totalItems"
+                                     ng-model="paginationOptions.currentPage"
+                                     ng-change="reloadGrid()"
+                                     items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                    <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                        <md-select ng-init="paginationOptions.itemsPerPage = '10'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()">
+                            <md-option ng-value="10">10</md-option>
+                            <md-option ng-value="25">25</md-option>
+                            <md-option ng-value="50">50</md-option>
+                            <md-option ng-value="75">75</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
         </div>
-        <div ng-switch-when="work">
-          <div ng-include="'partial/form2.html'"></div>
-        </div>
-      </div>
-    </md-content>
-  </section>
+    </div>
 </div>

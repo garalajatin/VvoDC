@@ -1,7 +1,7 @@
 'use strict';
 app.controller('dashboardCtrl', function($scope, $mdSidenav) {
 	var dbCtrl = this;
-	dbCtrl.toShow = "home";
+	dbCtrl.toShow = "dashboard";
 
 	dbCtrl.init = function() {
 		isShowMenuIcon = true;
