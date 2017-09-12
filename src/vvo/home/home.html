@@ -4,21 +4,21 @@
             <div layout-gt-xs="row" layout-xs="column" layout-align="stretch center">
                 <div layout="row" layout-align="start center">
                     <md-input-container md-no-float md-is-error="false" class="md-block">
-                        <input ng-model="code"
+                        <input ng-model="name"
                                class="md-input"
                                ng-change="gridActions.filter()"
                                id="order"
-                               placeholder="Search by Order #"
-                               filter-by="code"
+                               placeholder="Search by Name"
+                               filter-by="name"
                                filter-type="text"
                                aria-invalid="false">
                     </md-input-container>
                 </div>
             </div>
             <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
-                <div layout-gt-sm="row" layout-sm="column" layout-align="center">
+                <div layout-gt-sm="row" layout-sm="column">
                     <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                        <span>{{filtered.length}} items total</span>
+                        <span><span ng-bind="filtered.length"></span> items total</span>
                     </div>
                     <div flex-gt-sm="75" flex-xs="100">
                         <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
@@ -45,41 +45,37 @@
                     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                         <thead>
                         <tr>
-                            <th sortable="code" class="sortable mdl-data-table__cell--non-numeric">
-                                <span>Order #</span>
+                            <th sortable="name" class="sortable mdl-data-table__cell--non-numeric">
+                                <span>Name</span>
+                                <!-- <span class="arrow"></span> -->
+                            </th>
+                            <th sortable="typeName" class="sortable mdl-data-table__cell--non-numeric">
+                                <span>Type Name</span>
+                                <!-- <span class="arrow"></span> -->
+                            </th>
+                            <!-- <th sortable="mandantID" class="sortable">
+                                <span>Mandant ID</span>
                                 <span class="arrow"></span>
                             </th>
-                            <th class="st-sort-disable th-dropdown">
-                                <md-select filter-by="statusDisplay"
-                                           filter-type="select"
-                                           ng-model="status"
-                                           placeholder="Status"
-                                           ng-change="filter()">
-                                    <md-option value="">All Statuses</md-option>
-                                    <md-option ng-repeat="option in statusOptions track by option.value"
-                                               value="{{option.value}}">
-                                        {{option.text}}
-                                    </md-option>
-                                </md-select>
-                            </th>
-                            <th sortable="placed" class="sortable">
-                                <span>Date Placed</span>
+                            <th sortable="contactID" class="sortable">
+                                <span>Contact ID</span>
                                 <span class="arrow"></span>
                             </th>
-                            <th sortable='total.value' class="sortable">
-                                <span>Total</span>
+                            <th sortable='type' class="sortable">
+                                <span>Type</span>
                                 <span class="arrow"></span>
-                            </th>
+                            </th> -->
                         </tr>
                         </thead>
                         <tbody>
                         <tr grid-item>
+                            <td class="mdl-data-table__cell--non-numeric" ng-bind="item.name"></td>
                             <td class="mdl-data-table__cell--non-numeric">
-                                <span ng-bind="item.code"></span>
+                                <span ng-bind="item.typeName"></span>
                             </td>
-                            <td ng-bind="item.statusDisplay"></td>
-                            <td ng-bind="item.placed | date:'MM/dd/yyyy'"></td>
-                            <td ng-bind="item.total.formattedValue"></td>
+                            <!-- <td ng-bind="item.mandantID"></td>
+                            <td ng-bind="item.contactID"></td>
+                            <td ng-bind="item.type"></td> -->
                         </tr>
                         </tbody>
                     </table>

@@ -2,6 +2,7 @@
 function callService($http, $q, WSURLS) {
 	return {
 		call : function(serviceMethod, payload) {
+			console.log(serviceMethod + payload);
 			var deferred = $q.defer();
 			$http({
 				method : "POST",
