@@ -3,13 +3,24 @@
   <!-- Section pages -->
   <section layout="row" flex="">
   <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" id="leftSideNav" md-disable-backdrop="true">
-	      <md-toolbar class="sidenav-toolbar" layout="row" >
+	      <!-- <md-toolbar class="sidenav-toolbar" layout="row" >
 	        <h1 class="md-toolbar-tools">Sidenav Left</h1>
 	        <span flex></span>
 	        <md-button ng-click="dbCtrl.close()"  >
 			   <img src="media/close.png">
 			</md-button>
-	      </md-toolbar>
+	      </md-toolbar> -->
+	      
+	       <md-toolbar class="sidenav-toolbar" layout="row" >
+      <span flex></span>
+       <md-icon aria-label="close" ng-click="dbCtrl.close()" class="material-icons iconStyle">clear</md-icon>
+        
+       <!--  <md-button ng-click="close()"  >
+		   <img src="media/close.png" >
+		</md-button> -->
+		
+      </md-toolbar>
+      
 	      <md-content layout-padding="" layout="column" layout-align="start start" class="sidenav-content">
 	        <md-button ng-click="dbCtrl.show('home')" class="md-primary">Show Home</md-button>
 	        <md-button ng-click="dbCtrl.show('work')" class="md-primary">Show Work</md-button>

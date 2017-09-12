@@ -1,7 +1,8 @@
 <md-toolbar class="md-hue-2">
-<div ng-controller="toolbarCtrl as tbCtrl" ng-init="tbCtrl.init();" class="md-toolbar-tools">
-	<!-- <md-button ng-show="tbCtrl.isShowMenuIcon" ng-click="tbCtrl.toggleLeft()"> <img class="png-icon" src="media/menu.png">
-	</md-button> -->
-	<md-icon aria-label="Menu" ng-show="tbCtrl.isShowMenuIcon" ng-click="tbCtrl.toggleLeft()" class="material-icons md-icon">menu</md-icon>
-</div>
+	<div ng-controller="toolbarCtrl as tbCtrl" ng-init="tbCtrl.init();" class="md-toolbar-tools">
+		<div class="md-toolbar-tools">
+	    	<md-icon aria-label="Menu" ng-show="tbCtrl.isShowMenuIcon" ng-click="tbCtrl.toggleLeft()"  class="material-icons iconStyle">menu</md-icon>
+	        <h2 flex md-truncate>Toolbar </h2>
+	    </div>
+	</div>
 </md-toolbar>

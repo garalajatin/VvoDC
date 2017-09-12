@@ -136,6 +136,14 @@ md-toolbar {
     border-bottom: 1px solid #000;
     height: 12%;
 }
+md-icon{
+	cursor: pointer;
+}
+.iconStyle {
+    font-size: 50px !important;
+    padding-right: 65px;
+    height: 50px;
+}
 .login-header {
     background: rgb(63, 81, 181) !important;
     height: 65px;
@@ -149,9 +157,6 @@ md-sidenav#leftSideNav {
 }
 .sidenav-content{
 	background: #ddd;
-}
-.sidenav-toolbar{
-	background: #ddd !important;
 }
 .md-button.md-default-theme:not([disabled]).md-focused, .md-button:not([disabled]).md-focused, .md-button.md-default-theme:not([disabled]):hover, .md-button:not([disabled]):hover {
     background-color: transparent;

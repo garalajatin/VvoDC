@@ -15,7 +15,7 @@ app.controller('loginCtrl', function($http, $location) {
 		var payload = JSON.stringify({"loginName":lCtrl.formData.loginName,"password":lCtrl.formData.password,"clientKey":"VVO"});
 		$http({
 			method : "POST",
-			url : " http://localhost:8080/vvo/webservice/auth/doLogin",
+			url : " http://localhost:3606/vvo/webservice/auth/doLogin",
 			data : payload,
 			headers : {
 				'Content-Type' : 'application/json'
