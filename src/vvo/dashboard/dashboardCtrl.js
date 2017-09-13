@@ -14,4 +14,30 @@ app.controller('dashboardCtrl', function($scope, $mdSidenav) {
 	dbCtrl.show = function(toShow) {
 		dbCtrl.toShow = toShow;
 	};
+	
+	/* var imagePath = 'img/list/60.jpeg';*/
+	   /* $scope.indexToShow = -1;*/
+	    
+	    $scope.todos = [
+	      {
+	         who: 'Min Li Chan',
+	       },
+	       {
+		         who: 'Min Li Chan',
+		       },
+		       {
+			         who: 'Min Li Chan',
+			       },
+			       {
+				         who: 'Min Li Chan',
+				       },
+				       {
+					         who: 'Min Li Chan',
+					       },
+	    ];
+	  
+	    
+	    $scope.doPrimaryAction = function(event) {
+	    	
+	    	 alert($scope.todos[0].who); }
 });

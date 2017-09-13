@@ -22,8 +22,24 @@
       </md-toolbar>
       
 	      <md-content layout-padding="" layout="column" layout-align="start start" class="sidenav-content">
-	        <md-button ng-click="dbCtrl.show('home')" class="md-primary">Show Home</md-button>
-	        <md-button ng-click="dbCtrl.show('work')" class="md-primary">Show Work</md-button>
+	        <!-- <md-button ng-click="dbCtrl.show('home')" class="md-primary">Show Home</md-button>
+	        <md-button ng-click="dbCtrl.show('work')" class="md-primary ">Show Work</md-button>
+	        
+	        <br> -->
+	        
+	        <md-list flex-gt-xs="" class="list-option ">
+      	
+      		<md-list-item id="1" class="md-3-line item-style" ng-repeat="item in todos" ng-click="doPrimaryAction($event)">
+      		
+      			<!-- <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}"> -->
+      			
+      			<div class="md-list-item-text  "  layout="column">
+           		 <h3 >{{ item.who }}</h3>
+            	
+         	 </div> <md-divider></md-divider>
+      		</md-list-item>
+      		
+      	</md-list>
 	      </md-content>
 	</md-sidenav>
     <md-content flex="" layout-padding="" layout="column" >

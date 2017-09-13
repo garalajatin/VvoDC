@@ -144,6 +144,18 @@ md-icon{
     padding-right: 65px;
     height: 50px;
 }
+
+.list-option {
+	width: 100%;
+		
+	
+}
+
+.item-style {
+	height: 10px;
+	
+}
+
 .login-header {
     background: rgb(63, 81, 181) !important;
     height: 65px;
@@ -254,6 +266,10 @@ ul.pagination {
 
 .sortable.sort-descent span:after {
   display: none; }
+  
+  .sidenavdemoBasicUsage md-divider {
+  margin-top: 1px;
+  margin-bottom: 0; }
   
   
   /* end of list grid css */
