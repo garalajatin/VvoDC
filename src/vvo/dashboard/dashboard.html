@@ -9,9 +9,9 @@
       </md-toolbar>
 	      <md-content layout-padding="" layout="column" layout-align="start start" class="sidenav-content">
 	        <md-list flex-gt-xs="" class="list-option ">
-      		<md-list-item id="1" class="md-3-line item-style" ng-repeat="item in dbCtrl.todos" ng-click="dbCtrl.doPrimaryAction($event)">
+      		<md-list-item id="1" class=" item-style" ng-repeat="item in dbCtrl.todos" ng-click="dbCtrl.doPrimaryAction($event)">
       			<div class="md-list-item-text"  layout="column">
-           		 <h3 ng-bind="item.who"></h3>
+           		 <p ng-bind="item.who"></p>
          	 </div> <md-divider></md-divider>
       		</md-list-item>
       	</md-list>
