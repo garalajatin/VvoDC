@@ -1,7 +1,7 @@
 'use strict';
-app.controller('dashboardCtrl', function($scope, $mdSidenav) {
+app.controller('dashboardCtrl', function($mdSidenav) {
 	var dbCtrl = this;
-	dbCtrl.toShow = "household";
+	dbCtrl.toShow = "home";
 
 	dbCtrl.init = function() {
 		isShowMenuIcon = true;
@@ -18,7 +18,7 @@ app.controller('dashboardCtrl', function($scope, $mdSidenav) {
 	/* var imagePath = 'img/list/60.jpeg';*/
 	/* $scope.indexToShow = -1;*/
 
-	$scope.todos = [
+	dbCtrl.todos = [
 		{
 			who : 'Min Li Chan',
 		},
@@ -37,6 +37,6 @@ app.controller('dashboardCtrl', function($scope, $mdSidenav) {
 	];
 
 
-	$scope.doPrimaryAction = function(event) {
+	dbCtrl.doPrimaryAction = function(event) {
     }
 });

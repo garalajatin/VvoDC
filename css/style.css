@@ -271,5 +271,13 @@ ul.pagination {
   margin-top: 1px;
   margin-bottom: 0; }
   
+ .mdl-data-table tbody tr:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+.mdl-data-table tbody tr:focus {
+    background-color: #ddd;
+}
+ 
   
   /* end of list grid css */

@@ -1,6 +1,8 @@
-<div ng-controller="homeCtrl" layout="column" layout-fill>
+<div ng-controller="homeCtrl as hCtrl" layout="column" layout-fill>
     <div layout-padding layout="row" layout-align="center">
         <div flex-gt-md="60" flex-md="80" flex-xs="100">
+        
+        	<!-- Search bar -->	
             <div layout-gt-xs="row" layout-xs="column" layout-align="stretch center">
                 <div layout="row" layout-align="start center">
                     <md-input-container md-no-float md-is-error="false" class="md-block">
@@ -15,7 +17,9 @@
                     </md-input-container>
                 </div>
             </div>
-            <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
+            <div grid-data id='test' grid-options="hCtrl.gridOptions" grid-actions="gridActions">
+            	
+            	<!-- header pagination bar -->
                 <div layout-gt-sm="row" layout-sm="column">
                     <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
                         <span><span ng-bind="filtered.length"></span> items total</span>
@@ -41,6 +45,8 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- table content -->
                 <div>
                     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                         <thead>
@@ -49,8 +55,12 @@
                                 <span>Name</span>
                                 <!-- <span class="arrow"></span> -->
                             </th>
-                            <th sortable="typeName" class="sortable mdl-data-table__cell--non-numeric">
-                                <span>Type Name</span>
+                            <th sortable="type" class="sortable mdl-data-table__cell--non-numeric">
+                                <span>Type</span>
+                                <!-- <span class="arrow"></span> -->
+                            </th>
+                              <th sortable="dcDate" class="sortable">
+                                <span>Date</span>
                                 <!-- <span class="arrow"></span> -->
                             </th>
                             <!-- <th sortable="mandantID" class="sortable">
@@ -68,11 +78,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr grid-item>
+                        <tr grid-item  ng-click="hCtrl.setSelectedData(item)">
                             <td class="mdl-data-table__cell--non-numeric" ng-bind="item.name"></td>
                             <td class="mdl-data-table__cell--non-numeric">
-                                <span ng-bind="item.typeName"></span>
+                                <span ng-bind="item.type"></span>
                             </td>
+                            <td ng-bind="item.dcDate | date:'MM/dd/yyyy'"></td>
                             <!-- <td ng-bind="item.mandantID"></td>
                             <td ng-bind="item.contactID"></td>
                             <td ng-bind="item.type"></td> -->
@@ -80,6 +91,8 @@
                         </tbody>
                     </table>
                 </div>
+                
+                <!-- footer pagination bar -->
                 <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
                     <grid-pagination max-size="5"
                                      boundary-links="true"
@@ -97,8 +110,14 @@
                             <md-option ng-value="75">75</md-option>
                         </md-select>
                     </md-input-container>
-                </div>
+                </div> 
+            
             </div>
+            <hr>
+            <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+		      <md-button class="md-raised md-primary md-fab-top-right" ng-click="hCtrl.callShowDC(item)">Show DC</md-button>
+		    </section>
+		    <br>
         </div>
     </div>
 </div>
