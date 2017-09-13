@@ -180,6 +180,16 @@ md-sidenav#leftSideNav {
    width: 387px;
     height: 20px;
 }
+.fullSizeImg{
+	min-height:100%;
+    min-width:100%;
+    height:auto;
+    width:auto;
+    position:absolute;
+    top:-100%; bottom:-100%;
+    left:-100%; right:-100%;
+    margin:auto;
+}
 
 /* list grid css temporary */
 
@@ -278,6 +288,39 @@ ul.pagination {
 .mdl-data-table tbody tr:focus {
     background-color: #ddd;
 }
- 
-  
   /* end of list grid css */
+  
+/* start full screen image style */  
+
+.overlay-img {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    cursor:pointer;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+/* end full screen image style */ 

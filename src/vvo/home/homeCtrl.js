@@ -34,6 +34,8 @@ app.controller('homeCtrl',  function(WSFactory) {
     	
     	
     	hCtrl.callShowDC = function(item) {
+    		
+    		if(hCtrl.selectedData){
 
     		if(hCtrl.selectedData.dcID){
     			
@@ -87,7 +89,12 @@ app.controller('homeCtrl',  function(WSFactory) {
     			
     		}
     		
+    		}else
+    			alert('select record first');
+    		
+    		
 	}
+    	
     	hCtrl.setSelectedData = function(item) {
 
     		hCtrl.selectedData = item;
@@ -97,18 +104,19 @@ app.controller('homeCtrl',  function(WSFactory) {
 
 			WSFactory.call('dc/getList',payload)
 	    	.then(function(res) {
-	    		console.log(res.data);
+	    		
 	    		
 	    		if (res && res.data) {
 	    			
+	    			if (res.data.errorCode != '0') {
+	    				console.log(res.data.errorCode);
+	    				
+	    				
+	    			}else{
+    					console.log(res.data);
+    					hCtrl.switchImg("", "imgp1")
+    				}
 	    			
-	    			if (res.data.errorCode) {
-	    				if(res.data.errorCode.trim() !== '0')
-	    					alert(res.data.errorText);
-	    				else{
-	    					console.log(res.data);
-	    				}
-	    			}
 	    		}
 	    		
 	    	}).catch(function(err) {
@@ -117,7 +125,10 @@ app.controller('homeCtrl',  function(WSFactory) {
     	}
 
 
-    	
+    	hCtrl.switchImg = function(hideID,showID) {
+    		angular.element(document.getElementById(hideID)).css('width', '0%');
+    		angular.element(document.getElementById(showID)).css('width', '100%');
+    	}
 
 });
 
