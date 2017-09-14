@@ -1,10 +1,16 @@
 'use strict';
-app.controller('dashboardCtrl', function($mdSidenav) {
+app.controller('dashboardCtrl', dashBoardCtrl);
+function dashBoardCtrl($mdSidenav,$rootScope) {
 	var dbCtrl = this;
-	dbCtrl.toShow = "home";
+//	dbCtrl.toShow = "home";
 
 	dbCtrl.init = function() {
-		isShowMenuIcon = true;
+		$rootScope.isShowMenuIcon = false;
+		dbCtrl.toShow = "household";
+	}
+	
+	dbCtrl.testPrint = function() {
+		console.log('test');
 	}
 	
 	dbCtrl.close = function() {
@@ -39,4 +45,4 @@ app.controller('dashboardCtrl', function($mdSidenav) {
 
 	dbCtrl.doPrimaryAction = function(event) {
     }
-});
+}

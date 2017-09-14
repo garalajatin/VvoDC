@@ -1,9 +1,9 @@
 'use strict';
-app.controller('toolbarCtrl', function ($mdSidenav) {
+app.controller('toolbarCtrl', function ($mdSidenav, $rootScope) {
 	var tbCtrl = this;
-	
+	$rootScope.isShowMenuIcon = false;
 	tbCtrl.init = function() {
-		tbCtrl.isShowMenuIcon = isShowMenuIcon;
+		$rootScope.isShowMenuIcon = false;
 	}
 
 	tbCtrl.toggleLeft = function() {

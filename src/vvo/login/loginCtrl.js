@@ -1,5 +1,5 @@
 'use strict';
-app.controller('loginCtrl', function($http, $location, WSFactory) {
+app.controller('loginCtrl', function($http, $location, WSFactory, $cookies) {
 
 	var lCtrl = this;
 	lCtrl.formData = {
@@ -19,8 +19,11 @@ app.controller('loginCtrl', function($http, $location, WSFactory) {
 				if (res.data.errorCode) {
 					if(res.data.errorCode.trim() !== '0')
 						lCtrl.errorMessage = res.data.errorText;
-					else
+					else{
+						var commonParam = JSON.stringify({"loginLanguageID":res.data.result.languageID,"loginUserID":res.data.result.userID,"userSessionID":res.data.result.userSessionID});
+						$cookies.put('commonParam', commonParam);
 						$location.path('/dashboard');
+					}
 				}
 			}
 		}).catch(function(err) {

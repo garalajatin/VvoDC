@@ -1,6 +1,116 @@
-<div ng-controller="homeCtrl" layout="column" layout-fill style="border: 1px solid red;">
+<!-- <div ng-controller="houseHoldCtrl as hhCtrl" layout="column" ng-init ="hhCtrl.init();" layout-fill style="border: 1px solid red;">
     <div layout-padding layout="row" layout-align="center">
         <div flex-gt-md="60" flex-md="80" flex-xs="100" style="border: 1px solid blue;">
+        	<div layout="column" layout-fill style="border: 1px solid red;">
+    <div layout-padding layout="row" layout-align="center">
+        <div flex-gt-md="60"  flex-md="80" flex-xs="100" style="border: 1px solid blue;">
+
+			<md-content layout-padding="" layout-gt-sm="row">
+				<form name="userForm">
+					<div layout-sm="row">
+						<label>First name</label> &nbsp; &nbsp;
+						<md-input-container> <input
+							ng-model="user.firstName"> </md-input-container>
+					</div>
+					<div layout-sm="row">
+						<label>Last Name</label> &nbsp; &nbsp;
+						<md-input-container> <input ng-model="theMax">
+						</md-input-container>
+					</div>
+					<div layout-sm="row">
+
+						<label>Address</label> &nbsp; &nbsp;
+						<md-input-container> <input> </md-input-container>
+						&nbsp; &nbsp;
+						<md-input-container> <input> </md-input-container>
+					</div>
+					<div layout-sm="row">
+						<label>Text area</label> &nbsp; &nbsp;
+						<md-input-container> <textarea></textarea> </md-input-container>
+					</div>
+					<br>
+
+					<div layout-sm="row">
+						<label>check box</label> &nbsp; &nbsp;
+						<md-checkbox>item1</md-checkbox>
+						<md-checkbox>item2</md-checkbox>
+						<md-checkbox>item3</md-checkbox>
+					</div>
+
+					<div layout-sm="row">
+						<label>Text area</label> &nbsp; &nbsp;
+						<md-input-container> <textarea></textarea> </md-input-container>
+					</div>
+
+					<div layout-sm="row">
+						<label>text field</label> &nbsp; &nbsp;
+						<md-input-container> <input ng-model="theMax">
+						</md-input-container>
+					</div>
+				</form>
+			 
+			</md-content>
+
+		</div>
+    </div>
+</div>
+
+
         </div>
     </div>
 </div>
+ -->
+ 
+ <div layout="row" layout-wrap  ng-controller="houseHoldCtrl as hhCtrl" layout="column" ng-init ="hhCtrl.init();">
+  <div flex="15"></div>
+  <div flex="60">
+  	<md-content layout-padding="" layout-gt-sm="row">
+				<form name="userForm">
+					<div layout-sm="row">
+						<label>First name</label> &nbsp; &nbsp;
+						<md-input-container> <input
+							ng-model="user.firstName"> </md-input-container>
+					</div>
+					<div layout-sm="row">
+						<label>Last Name</label> &nbsp; &nbsp;
+						<md-input-container> <input ng-model="theMax">
+						</md-input-container>
+					</div>
+					<div layout-sm="row">
+
+						<label>Address</label> &nbsp; &nbsp;
+						<md-input-container> <input> </md-input-container>
+						&nbsp; &nbsp;
+						<md-input-container> <input> </md-input-container>
+					</div>
+					<div layout-sm="row">
+						<label>Text area</label> &nbsp; &nbsp;
+						<md-input-container> <textarea></textarea> </md-input-container>
+					</div>
+					<br>
+
+					<div layout-sm="row">
+						<label>check box</label> &nbsp; &nbsp;
+						<md-checkbox>item1</md-checkbox>
+						<md-checkbox>item2</md-checkbox>
+						<md-checkbox>item3</md-checkbox>
+					</div>
+
+					<div layout-sm="row">
+						<label>Text area</label> &nbsp; &nbsp;
+						<md-input-container> <textarea></textarea> </md-input-container>
+					</div>
+
+					<div layout-sm="row">
+						<label>text field</label> &nbsp; &nbsp;
+						<md-input-container> <input ng-model="theMax">
+						</md-input-container>
+					</div>
+				</form>
+			 
+			</md-content>
+  </div>
+  <div flex="25"></div>
+  
+</div>
+

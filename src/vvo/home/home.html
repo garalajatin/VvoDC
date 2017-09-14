@@ -1,4 +1,4 @@
-<div ng-controller="homeCtrl as hCtrl" layout="column" layout-fill>
+<div ng-controller="homeCtrl as hCtrl" ng-init="hCtrl.init();" layout="column" layout-fill>
     <div layout-padding layout="row" layout-align="center">
         <div flex-gt-md="60" flex-md="80" flex-xs="100">
         
@@ -120,13 +120,9 @@
 		    <br>
         </div>
     </div>
-    <img ng-src="media/photos/P-1.jpg" id="imgp1" class="overlay-img" ng-click="hCtrl.switchImg('imgP1','imgp2')">
-    <img ng-src="media/photos/P-2.jpg" id="imgp2" class="overlay-img" ng-click="hCtrl.switchImg('imgp2','imgas1')">
-    <img ng-src="media/photos/AS-1.jpg" id="imgas1" class="overlay-img" ng-click="hCtrl.switchImg('imgas1','imgas2')">
-    <img ng-src="media/photos/AS-2.jpg" id="imgas2" class="overlay-img" >
-    <!-- <img src="media/photos/P-1.jpg" id="imgp1" class="overlay-img" onclick="hCtrl.switchImg('imgP2','imgp1');">
-	<img src="media/photos/P-2.jpg" id="imgp2" class="overlay-img" >
-	<img src="media/photos/AS-1.jpg" id="imgas1" class="overlay-img">
-	<img src="media/photos/AS-2.jpg" id="imgas2" class="overlay-img"> -->
+    <img ng-src="media/photos/P-1.jpg" ng-show="hCtrl.isShowImg == 1" id="imgp1" class="overlay-img" ng-click="hCtrl.switchImg('imgP1','imgp2');">
+    <img ng-src="media/photos/P-2.jpg" ng-show="hCtrl.isShowImg == 2" id="imgp2" class="overlay-img" ng-click="hCtrl.switchImg('imgp2','imgas1');">
+    <img ng-src="media/photos/AS-1.jpg" ng-show="hCtrl.isShowImg == 3" id="imgas1" class="overlay-img" ng-click="hCtrl.switchImg('imgas1','imgas2');">
+    <img ng-src="media/photos/AS-2.jpg" ng-show="hCtrl.isShowImg == 4" id="imgas2" class="overlay-img" ng-click="hCtrl.callTestCtrl();">
 </div>
 

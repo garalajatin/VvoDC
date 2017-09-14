@@ -1,7 +1,13 @@
 'use strict';
-app.controller('homeCtrl',  function(WSFactory) {
+app.controller('homeCtrl',  function($scope, WSFactory, DataService, $cookies, $location) {
 	
 	var hCtrl = this;
+	var commonParam=angular.fromJson($cookies.get('commonParam'));
+	hCtrl.isShowImg = -1;
+	
+	hCtrl.init = function() {
+		dashBoardCtrl.apply(hCtrl, arguments);
+	}
 	
 	hCtrl.selectedData= undefined;
 
@@ -9,8 +15,10 @@ app.controller('homeCtrl',  function(WSFactory) {
         data: [],
         urlSync: false
     };
-        var payload = JSON.stringify({"loginLanguageID":"","loginUserID":"","userSessionID":"", "procedureName":"getDCList"});
-    	WSFactory.call('dc/getList',payload)
+        
+        commonParam["procedureName"] = "getDCList";
+        
+    	WSFactory.call('dc/getList',JSON.stringify(commonParam))
     	.then(function(res) {
     		hCtrl.gridOptions.data = res.data.result;
     		/*if (res && res.data) {
@@ -39,47 +47,31 @@ app.controller('homeCtrl',  function(WSFactory) {
 
     		if(hCtrl.selectedData.dcID){
     			
-    			var payload = JSON.stringify(
-    					{"loginLanguageID":"",
-    					 "loginUserID":"",
-    					 "userSessionID":"",
-    					 "dcID":(hCtrl.selectedData.dcID) ? hCtrl.selectedData.dcID:"",
-    					 "procedureName":"getDCPERSGOALS1List"
-    					});
+    			commonParam["dcID"] = (hCtrl.selectedData.dcID) ? hCtrl.selectedData.dcID:"";
+    			commonParam["procedureName"] = "getDCPERSGOALS1List";
     			
-    
-    			hCtrl.getDCPERSGOALS1List(payload);
+    			hCtrl.getDCPERSGOALS1List(commonParam);
     			
     			
     			
     		}else{
-    			var payload = JSON.stringify(
-    					{"loginLanguageID":"",
-    					 "loginUserID":"",
-    					 "userSessionID":"",
-    					 "contactID":(hCtrl.selectedData.contactID) ? hCtrl.selectedData.contactID:"",
-    					 "mandantID":(hCtrl.selectedData.mandantID) ? hCtrl.selectedData.mandantID:"",
-    					 "dcDate":(hCtrl.selectedData.dcDate) ? hCtrl.selectedData.dcDate:"",
-    					 "expStatus":"",
-    					 "procedureName":"creDC"
-    					});
+    			
+    			commonParam["contactID"] = (hCtrl.selectedData.contactID) ? hCtrl.selectedData.contactID:"",
+    			commonParam["mandantID"] = (hCtrl.selectedData.mandantID) ? hCtrl.selectedData.mandantID:"",
+    			commonParam["dcDate"] = (hCtrl.selectedData.dcDate) ? hCtrl.selectedData.dcDate:"",
+    			commonParam["expStatus"] = "";
+    			commonParam["procedureName"] = "creDC";
     			
     			
-    		 	WSFactory.call('dc/create',payload)
+    		 	WSFactory.call('dc/create',commonParam)
     	    	.then(function(res) {
     	    		
     	    		if(res.data.dcID){
     	    			
-    	    			var payload = JSON.stringify(
-    	    					{"loginLanguageID":"",
-    	    					 "loginUserID":"",
-    	    					 "userSessionID":"",
-    	    					 "dcID":(res.data.dcID) ? res.data.dcID:"",
-    	    					 "procedureName":"getDCPERSGOALS1List"
-    	    					});
-    	    			
-    	    
-    	    			hCtrl.getDCPERSGOALS1List(payload);
+    	    			commonParam["dcID"] = (res.data.dcID) ? res.data.dcID:"",
+    	    			commonParam["procedureName"] = "getDCPERSGOALS1List";
+
+    	    			hCtrl.getDCPERSGOALS1List(commonParam);
     	    			
     	    			
     	    		}
@@ -114,6 +106,7 @@ app.controller('homeCtrl',  function(WSFactory) {
 	    				
 	    			}else{
     					console.log(res.data);
+    					DataService.setData(res.data);
     					hCtrl.switchImg("", "imgp1")
     				}
 	    			
@@ -126,8 +119,23 @@ app.controller('homeCtrl',  function(WSFactory) {
 
 
     	hCtrl.switchImg = function(hideID,showID) {
+    		if(showID === 'imgp1')
+    			hCtrl.isShowImg = 1;
+    		else if(showID === 'imgp2')
+    			hCtrl.isShowImg = 2;
+    		else if(showID === 'imgas1')
+    			hCtrl.isShowImg = 3;
+    		else if(showID === 'imgas2')
+    			hCtrl.isShowImg = 4;
+    		else
+    			hCtrl.isShowImg = -1;
     		angular.element(document.getElementById(hideID)).css('width', '0%');
     		angular.element(document.getElementById(showID)).css('width', '100%');
+    	}
+    	
+    	hCtrl.callTestCtrl = function() {
+    		hCtrl.switchImg('imgas2','');
+    		$scope.dbCtrl.toShow ='household';
     	}
 
 });

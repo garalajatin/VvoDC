@@ -1,11 +1,12 @@
 'use strict';
 
-var app = angular.module('StarterApp', [ 'ngMaterial', 'ngMdIcons', 'ngRoute','dataGrid', 'pagination']);
-var isShowMenuIcon = false;
+var app = angular.module('StarterApp', [ 'ngMaterial', 'ngMdIcons', 'ngRoute','dataGrid', 'pagination','ngCookies']);
 app.config([ '$locationProvider', function($locationProvider) {
 	$locationProvider.hashPrefix('');
 }]);
-
+app.config(function($mdAriaProvider) {
+	   $mdAriaProvider.disableWarnings();
+	});
 app.config([ '$routeProvider',
 
 	function($routeProvider) {
@@ -28,3 +29,4 @@ app.config([ '$routeProvider',
 }]);
 
 app.factory('WSFactory',callService);
+app.factory('DataService',dataService);
