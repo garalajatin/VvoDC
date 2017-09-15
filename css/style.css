@@ -136,6 +136,13 @@ md-toolbar {
     border-bottom: 1px solid #000;
     height: 12%;
 }
+.white-bg{
+	background: linear-gradient(center top , #FFF 0%, #EDEDED 100%);
+    background: -moz-linear-gradient(center top , #FFF 0%, #EDEDED 100%);
+    background: -webkit-linear-gradient(top, #FFF 0%, #EDEDED 100%);
+    background: -o-linear-gradient(center top , #FFF 0%, #EDEDED 100%);
+    background: -ms-linear-gradient(top, #FFF 0%, #EDEDED 100%);
+}
 md-icon{
 	cursor: pointer;
 }
@@ -314,14 +321,6 @@ ul.pagination {
     margin-top: 30px;
 }
 
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
-}
 
 /* end full screen image style */ 
 
@@ -330,12 +329,58 @@ ul.pagination {
 }
 .right-img-style{
 	width: 100%;
-    padding-top: 115px;
+    padding-top: 65px;
 }
 .header1 {
     color: OrangeRed;
-    font-size: 35px;
+    font-size: 30px;
+    line-height: 40px;
 }
-.bold {
-    font-family: ProximaNovaBold;
+.header2 {
+    color: #81756b;
+    font-size: 16px;
+    line-height: 20px;
+}
+.styled-select.slate span {
+    float: left;
+    width: 100%;
+    color: #000;
+    font-size: 14px;
+}
+.styled-select.slate {
+    font-size: 16px;
+}
+md-content {
+    background-color: #ededed !important;
+}
+.commentact {
+    margin: 18px 0;
+    float: left;
+}
+.full-width{
+	float: left;
+	width: 100%;
+}
+.frm-close{
+	min-width: auto!important;
+}
+md-content.sidenav-content {
+    background-color: #ddd!important;
+}
+.form-style{
+	font-family: ProximaNovaLight;
+	color: #000;
+}
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+@media (min-width: 1430px){
+	.container {
+	    width: 1400px;
+	}
 }

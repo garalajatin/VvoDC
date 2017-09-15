@@ -7,6 +7,10 @@ function dashBoardCtrl($mdSidenav,$rootScope) {
 	dbCtrl.init = function() {
 		$rootScope.isShowMenuIcon = false;
 		dbCtrl.toShow = "home";
+		
+		$rootScope.$on('hhPrev',function() {
+			dbCtrl.init();
+		});
 	}
 	
 	dbCtrl.testPrint = function() {
@@ -26,8 +30,8 @@ function dashBoardCtrl($mdSidenav,$rootScope) {
 
 	dbCtrl.todos = [
 		{
-			who : 'Min Li Chan',
-		},
+			who : '01 Persönliche Ziele 1/2',
+		}/*,
 		{
 			who : 'Min Li Chan',
 		},
@@ -39,10 +43,12 @@ function dashBoardCtrl($mdSidenav,$rootScope) {
 		},
 		{
 			who : 'Min Li Chan',
-		},
+		},*/
 	];
 
 
 	dbCtrl.doPrimaryAction = function(event) {
     }
+	
+	
 }

@@ -5,7 +5,7 @@
   
 	  <md-content layout-padding="" layout-gt-sm="row" ng-if="hhCtrl.isShowForm">
 	  
-		<form name="userForm" layout-padding="20px" style=" width:100%;">
+		<form name="userForm" layout-padding="20px" style=" width:100%;" class="form-style">
 		 <!-- <header>
 
         <md-toolbar class="form-header">
@@ -17,34 +17,55 @@
         </md-toolbar>
 
       </header> -->
-      		<div layout-sm="row" class="form-close-btn">
-				<md-icon aria-label="Menu" ng-click="hhCtrl.onCloseClick();"  class="material-icons iconStyle">clear</md-icon>
-			</div>
+      		
 			<div layout-sm="row">
-				<label>Haben Sie schon einmal eine Wirtschaftsanalyse gemacht?</label> &nbsp; &nbsp;
-				<md-checkbox ng-model="hhCtrl.formData.waCB" ng-checked="hhCtrl.formData.waCB">ja</md-checkbox>
-				&nbsp; &nbsp;
-				<md-input-container style="width:35%;" > <textarea ng-model="hhCtrl.formData.waText"></textarea> </md-input-container>
+				<div class="col-lg-11 col-md-11 col-sm-11">
+					<label>Haben Sie schon einmal eine Wirtschaftsanalyse gemacht?</label> &nbsp; &nbsp;
+					<md-checkbox ng-model="hhCtrl.formData.waCB" ng-checked="hhCtrl.formData.waCB">ja</md-checkbox>
+					&nbsp; &nbsp;
+					<md-input-container style="width:35%;" > <textarea ng-model="hhCtrl.formData.waText"></textarea> </md-input-container>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1">
+					<div layout-sm="row" class="form-close-btn">
+<!-- 						<md-icon aria-label="Menu" ng-click="hhCtrl.onCloseClick();"  class="material-icons iconStyle">clear</md-icon> -->
+					<md-button ng-click="hhCtrl.onCloseClick();" class="frm-close" >
+					   <span class="commentact" id="comment0"><img src="media/close.png" style="width: 28px;"></span>
+					</md-button>
+					</div>
+				</div>
 			</div>
 			
 			<div layout-sm="row">
-				<label>Was hat Ihnen damals gut/nicht gut gefallen?</label> &nbsp; &nbsp;
-				<md-input-container style="width:55%;" > <textarea ng-model="hhCtrl.formData.experience"></textarea> </md-input-container>
+				<div class="col-lg-11 col-md-11 col-sm-11">
+					<label>Was hat Ihnen damals gut/nicht gut gefallen?</label> &nbsp; &nbsp;
+					<md-input-container style="width:55%;" > <textarea ng-model="hhCtrl.formData.experience"></textarea> </md-input-container>
+				</div>
 			</div>
 			
 			<div layout-sm="row">
-				<label>Wer berät Sie bei Anlageentscheidungen?</label> &nbsp; &nbsp;
-				<md-input-container style="width:57%;"> <input ng-model="hhCtrl.formData.advisor">
-				</md-input-container>
+				<div class="col-lg-11 col-md-11 col-sm-11">
+					<label>Wer berät Sie bei Anlageentscheidungen?</label> &nbsp; &nbsp;
+					<md-input-container style="width:57%;"> <input ng-model="hhCtrl.formData.advisor">
+					</md-input-container>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1">
+				<md-button ng-click="hhCtrl.isShowComment();" class="frm-close" >
+					   <span class="commentact" id="comment0"><img src="media/note.png" style="width: 28px;"></span>
+					</md-button>
+					<!-- <span class="commentact" id="comment0"><img src="media/note.png" style="width: 28px;"></span> -->
+				</div>
 			</div>
 			
-			<div layout-sm="row">
-				<label>Kommentar</label> &nbsp; &nbsp;
-				<md-input-container style="width:55%;" > <textarea ng-model="hhCtrl.formData.remark"></textarea> </md-input-container>
+			<div layout-sm="row" ng-show="hhCtrl.bShowHideComment">
+				<div class="col-lg-11 col-md-11 col-sm-11">
+					<label>Kommentar</label> &nbsp; &nbsp;
+					<md-input-container style="width:55%;" > <textarea ng-model="hhCtrl.formData.remark"></textarea> </md-input-container>
+				</div>
 			</div>
+			
+			<div class="full-width"><hr></div>
 			
 			<div layout-sm="row" >
-			<hr>
 				<md-button ng-click="hhCtrl.onSaveClick();"  >
 			   <img src="media/save.png" >
 			</md-button>
@@ -55,7 +76,7 @@
   
   <div flex="25">
   <div class="right-img-style"></div>
-  <img src="media/photos/AS-2.jpg" style="width:100%; padding-top: 0px;"></img>
+  <img src="media/photos/AS-2.jpg" style="width:100%; padding-top: 0px;max-width:262px;"></img>
   
   </div>
 	 

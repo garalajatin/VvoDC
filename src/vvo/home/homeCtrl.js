@@ -15,13 +15,13 @@ app.controller('homeCtrl',  function($scope, WSFactory, DataService, $cookies, $
         data: [],
         urlSync: false
     };
-        
+	
         commonParam["procedureName"] = "getDCList";
         
     	WSFactory.call('dc/getList',JSON.stringify(commonParam))
     	.then(function(res) {
     		hCtrl.gridOptions.data = res.data.result;
-    		/*if (res && res.data) {
+    		if (res && res.data) {
     			
     			
     			if (res.data.errorCode) {
@@ -34,14 +34,16 @@ app.controller('homeCtrl',  function($scope, WSFactory, DataService, $cookies, $
     			}
     			
     			
-    		}*/
+    		}
     	}).catch(function(err) {
     		console.warn(err);
     	});
     	
-    	
-    	
     	hCtrl.callShowDC = function(item) {
+    		
+    	
+    		DataService.setData(hCtrl.data);
+			hCtrl.switchImg("", "imgp1");
     		
     		if(hCtrl.selectedData){
 
@@ -83,8 +85,6 @@ app.controller('homeCtrl',  function($scope, WSFactory, DataService, $cookies, $
     		
     		}else
     			alert('select record first');
-    		
-    		
 	}
     	
     	hCtrl.setSelectedData = function(item) {

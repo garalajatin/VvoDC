@@ -12,7 +12,9 @@ app.controller('loginCtrl', function($http, $location, WSFactory, $cookies) {
 	lCtrl.errorMessage = undefined;
 	lCtrl.onClickLink = function(department) {};
 	lCtrl.onLogin = function() {
-		var payload = JSON.stringify({"loginName":lCtrl.formData.loginName,"password":lCtrl.formData.password,"clientKey":"VVO"});
+		$location.path('/dashboard');
+		
+	var payload = JSON.stringify({"loginName":lCtrl.formData.loginName,"password":lCtrl.formData.password,"clientKey":"VVO"});
 		WSFactory.call('auth/doLogin',payload)
 		.then(function(res) {
 			if (res && res.data) {

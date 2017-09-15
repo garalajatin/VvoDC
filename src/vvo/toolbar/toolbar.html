@@ -13,45 +13,44 @@
 
  -->
 <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
-<md-toolbar class="md-hue-2 main-toolbar">
+<md-toolbar class="md-hue-2 main-toolbar white-bg">
 	<div ng-controller="toolbarCtrl as tbCtrl" ng-init="tbCtrl.init();" class="md-toolbar-tools">
-	<div flex="5">
-		<div class="md-toolbar-tools">
-	    	<md-icon aria-label="Menu" ng-show="isShowMenuIcon" ng-click="tbCtrl.toggleLeft()"  class="material-icons iconStyle">menu</md-icon>
-	    	<!-- <md-button ng-click="tbCtrl.toggleLeft()" ng-show="isShowMenuIcon" >
-			   <img src="media/menu.png" >
-			</md-button> -->
+		<div class="col-lg-1 col-md-1 col-sm-1">
+			<div class="md-toolbar-tools">
+		    	<!-- <md-icon aria-label="Menu" ng-show="isShowMenuIcon" ng-click="tbCtrl.toggleLeft()"  class="material-icons iconStyle">menu</md-icon> -->
+		    	<md-button ng-click="tbCtrl.toggleLeft()" ng-show="isShowMenuIcon" >
+				   <img src="media/menu.png" >
+				</md-button>
+		    </div>
 	    </div>
-	    </div>
-	    <div flex="37" >
-	    	
+	    <div class="col-lg-5 col-md-5 col-sm-5" >
 	    	<div class="row" ng-show="isShowMenuIcon">
-			<div class="col-md-3 text-center">
-				<span>
-					<img src="media/previous.png" style="width: 30%; margin-top: 20px; margin-right: 10px;">
-				</span>
+				<div class="col-md-2 text-center" ng-click="tbCtrl.onPrevClick();" style="cursor:pointer;">
+					<span>
+						<img src="media/previous.png" style="margin-top: 30px; margin-right: 10px;">
+					</span>
+				</div>
+				<div class="col-md-8 text-center"><span class="header1" style="margin-top: 25px;float: left;width: 100%;">01 Persönliche Ziele 1/2</span><span class="header1 bold"></span><br>
+				<!-- <span class="header2">16 HAUSRAT</span><span class="header2 bold">VERSICHERUNG</span> -->
+				<span class="header2">16 HAUSRAT VERSICHERUNG</span>
+				</div>
+				<div class="col-md-2 text-center" ng-click="tbCtrl.onNextClick();" style="cursor:pointer;">
+					<span>
+						<img src="media/next.png" style="margin-top: 30px; margin-left: 20px;">
+					</span>
+				</div>
 			</div>
-			<div class="col-md-6 text-center"><span class="header1">01 Persönliche Ziele 1/2</span><span class="header1 bold"></span><br>
-			<span class="header2"></span><span class="header2 bold"></span>
-			</div>
-			<div class="col-md-3 text-center">
-				<span>
-					<img src="media/next.png" style="width: 30%; margin-top: 20px; margin-left: 20px;">
-				</span>
-			</div>
-		</div>
-		
 	    </div>
-	    <div flex="25">
-	    <div class="styled-select slate" style="margin-top:15px;" ng-show="false">
-			<span>Mandant:&nbsp;</span>
- 			 <select id='mandant" + formID +"'>
-    			<option value='antonio_mueller'>Antonio</option>
-				<option value='antonia_mueller'>Antonia</option>
- 			 </select>
-		</div>
+	    <div class="col-lg-2 col-md-2 col-sm-2">
+		    <div class="styled-select slate" style="margin-top:15px;" ng-show="isShowMenuIcon">
+				<span>Mandant:&nbsp;</span>
+	 			 <select id='mandant" + formID +"'>
+	    			<option value='antonio_mueller'>Antonio</option>
+					<option value='antonia_mueller'>Antonia</option>
+	 			 </select>
+			</div>
 	    </div>
-	    <div flex="33">
+	    <div class="col-lg-4 col-md-4 col-sm-4">
 	    <h2 flex md-truncate></h2>
 	    <div class="logo-left-style"><img class="png-icon" src="media/site1/VVO_Haberger_AG.png" ></div>
 	    </div>

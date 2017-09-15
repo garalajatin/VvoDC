@@ -2,7 +2,7 @@
 // these are the constants for user authorization and authentication
 
 app.constant('WSURLS', {
-	serviceURL : 'http://localhost:3606/vvo/webservice/'
+	serviceURL : 'http://192.168.0.73:3606/vvo/webservice/'
 });
 
 /*app.constant('AUTH_EVENTS', {

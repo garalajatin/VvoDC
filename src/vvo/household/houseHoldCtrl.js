@@ -3,6 +3,7 @@ app.controller('houseHoldCtrl', function (WSFactory,  DataService, $rootScope,$c
 	var hhCtrl = this;
 	
 	hhCtrl.commonParam = undefined;
+	hhCtrl.bShowHideComment = false;
 	hhCtrl.init = function(){
 		$rootScope.isShowMenuIcon = true;
 		hhCtrl.isShowForm = true;
@@ -14,7 +15,12 @@ app.controller('houseHoldCtrl', function (WSFactory,  DataService, $rootScope,$c
 			hhCtrl.returnData = successResponse.result[0];
 			hhCtrl.formData = hhCtrl.returnData;
 			hhCtrl.formData.waCB = (hhCtrl.returnData.waCB === 'Y' || hhCtrl.returnData.waCB === 'y');
+			hhCtrl.bShowHideComment = (hhCtrl.formData.remark !== undefined && hhCtrl.formData.remark !== null && hhCtrl.formData.remark.trim() !== '');
 		  });
+		
+		$rootScope.$on('hhSaveForm',function() {
+			hhCtrl.onSaveClick();
+		});
 		
 	}
 	
@@ -32,20 +38,20 @@ app.controller('houseHoldCtrl', function (WSFactory,  DataService, $rootScope,$c
 			hhCtrl.payload.waCB = 'N';
 		WSFactory.call('dc/update',hhCtrl.payload)
 		.then(function(res) {
-			if (res && res.data) {
-				if (res.data.errorCode) {
-					if(res.data.errorCode.trim() !== '0')
+					if(res.data.errorCode !== 0)
 						lCtrl.errorMessage = res.data.errorText;
 					else{
-						var commonParam = JSON.stringify({"loginLanguageID":res.data.result.languageID,"loginUserID":res.data.result.userID,"userSessionID":res.data.result.userSessionID});
-						$cookies.put('commonParam', commonParam);
-						$location.path('/dashboard');
+						alert('Data saved successfully !');
 					}
-				}
-			}
 		}).catch(function(err) {
 			console.warn(err);
 		});
+	}
+	
+	hhCtrl.isShowComment = function(){
+		hhCtrl.bShowHideComment = !hhCtrl.bShowHideComment;
+		if(!hhCtrl.formData.bShowHideComment)
+			hhCtrl.formData.remark = '';
 	}
 	
 	hhCtrl.jsonConcat = function(o1, o2) {
