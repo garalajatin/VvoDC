@@ -324,3 +324,18 @@ ul.pagination {
 }
 
 /* end full screen image style */ 
+
+.form-close-btn{
+	text-align: right;
+}
+.right-img-style{
+	width: 100%;
+    padding-top: 115px;
+}
+.header1 {
+    color: OrangeRed;
+    font-size: 35px;
+}
+.bold {
+    font-family: ProximaNovaBold;
+}

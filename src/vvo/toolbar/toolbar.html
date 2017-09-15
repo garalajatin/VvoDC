@@ -1,10 +1,63 @@
-<md-toolbar class="md-hue-2 main-toolbar">
+<!-- <md-toolbar class="md-hue-2 main-toolbar">
 	<div ng-controller="toolbarCtrl as tbCtrl" ng-init="tbCtrl.init();" class="md-toolbar-tools">
+	<div flex="15">
 		<div class="md-toolbar-tools">
 	    	<md-icon aria-label="Menu" ng-show="isShowMenuIcon" ng-click="tbCtrl.toggleLeft()"  class="material-icons iconStyle">menu</md-icon>
-	        <h2 flex md-truncate>Toolbar </h2>
+	        <h2 flex md-truncate></h2>
+	    </div>
 	    </div>
 	    <div class="logo-left-style"><img class="png-icon" src="media/site1/VVO_Haberger_AG.png" ></div>
 	</div>
 	
 </md-toolbar>
+
+ -->
+<meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+<md-toolbar class="md-hue-2 main-toolbar">
+	<div ng-controller="toolbarCtrl as tbCtrl" ng-init="tbCtrl.init();" class="md-toolbar-tools">
+	<div flex="5">
+		<div class="md-toolbar-tools">
+	    	<md-icon aria-label="Menu" ng-show="isShowMenuIcon" ng-click="tbCtrl.toggleLeft()"  class="material-icons iconStyle">menu</md-icon>
+	    	<!-- <md-button ng-click="tbCtrl.toggleLeft()" ng-show="isShowMenuIcon" >
+			   <img src="media/menu.png" >
+			</md-button> -->
+	    </div>
+	    </div>
+	    <div flex="37" >
+	    	
+	    	<div class="row" ng-show="isShowMenuIcon">
+			<div class="col-md-3 text-center">
+				<span>
+					<img src="media/previous.png" style="width: 30%; margin-top: 20px; margin-right: 10px;">
+				</span>
+			</div>
+			<div class="col-md-6 text-center"><span class="header1">01 Persönliche Ziele 1/2</span><span class="header1 bold"></span><br>
+			<span class="header2"></span><span class="header2 bold"></span>
+			</div>
+			<div class="col-md-3 text-center">
+				<span>
+					<img src="media/next.png" style="width: 30%; margin-top: 20px; margin-left: 20px;">
+				</span>
+			</div>
+		</div>
+		
+	    </div>
+	    <div flex="25">
+	    <div class="styled-select slate" style="margin-top:15px;" ng-show="false">
+			<span>Mandant:&nbsp;</span>
+ 			 <select id='mandant" + formID +"'>
+    			<option value='antonio_mueller'>Antonio</option>
+				<option value='antonia_mueller'>Antonia</option>
+ 			 </select>
+		</div>
+	    </div>
+	    <div flex="33">
+	    <h2 flex md-truncate></h2>
+	    <div class="logo-left-style"><img class="png-icon" src="media/site1/VVO_Haberger_AG.png" ></div>
+	    </div>
+	</div>
+	
+</md-toolbar>
+
+
+

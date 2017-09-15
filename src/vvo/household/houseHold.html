@@ -1,3 +1,68 @@
+ <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+ <div layout="row" layout-wrap  ng-controller="houseHoldCtrl as hhCtrl" layout="column" ng-init ="hhCtrl.init();">
+  <div flex="15"></div>
+  <div flex="60">
+  
+	  <md-content layout-padding="" layout-gt-sm="row" ng-if="hhCtrl.isShowForm">
+	  
+		<form name="userForm" layout-padding="20px" style=" width:100%;">
+		 <!-- <header>
+
+        <md-toolbar class="form-header">
+           <div layout="row" layout-align="end center" flex>
+           <md-button ng-click="nbCtrl.close()"  >
+			   <img src="media/close.png" >
+			</md-button>
+          </div>
+        </md-toolbar>
+
+      </header> -->
+      		<div layout-sm="row" class="form-close-btn">
+				<md-icon aria-label="Menu" ng-click="hhCtrl.onCloseClick();"  class="material-icons iconStyle">clear</md-icon>
+			</div>
+			<div layout-sm="row">
+				<label>Haben Sie schon einmal eine Wirtschaftsanalyse gemacht?</label> &nbsp; &nbsp;
+				<md-checkbox ng-model="hhCtrl.formData.waCB" ng-checked="hhCtrl.formData.waCB">ja</md-checkbox>
+				&nbsp; &nbsp;
+				<md-input-container style="width:35%;" > <textarea ng-model="hhCtrl.formData.waText"></textarea> </md-input-container>
+			</div>
+			
+			<div layout-sm="row">
+				<label>Was hat Ihnen damals gut/nicht gut gefallen?</label> &nbsp; &nbsp;
+				<md-input-container style="width:55%;" > <textarea ng-model="hhCtrl.formData.experience"></textarea> </md-input-container>
+			</div>
+			
+			<div layout-sm="row">
+				<label>Wer berät Sie bei Anlageentscheidungen?</label> &nbsp; &nbsp;
+				<md-input-container style="width:57%;"> <input ng-model="hhCtrl.formData.advisor">
+				</md-input-container>
+			</div>
+			
+			<div layout-sm="row">
+				<label>Kommentar</label> &nbsp; &nbsp;
+				<md-input-container style="width:55%;" > <textarea ng-model="hhCtrl.formData.remark"></textarea> </md-input-container>
+			</div>
+			
+			<div layout-sm="row" >
+			<hr>
+				<md-button ng-click="hhCtrl.onSaveClick();"  >
+			   <img src="media/save.png" >
+			</md-button>
+			</div>
+		</form>
+		</md-content>
+  </div>
+  
+  <div flex="25">
+  <div class="right-img-style"></div>
+  <img src="media/photos/AS-2.jpg" style="width:100%; padding-top: 0px;"></img>
+  
+  </div>
+	 
+</div>
+
+
+
 <!-- <div ng-controller="houseHoldCtrl as hhCtrl" layout="column" ng-init ="hhCtrl.init();" layout-fill style="border: 1px solid red;">
     <div layout-padding layout="row" layout-align="center">
         <div flex-gt-md="60" flex-md="80" flex-xs="100" style="border: 1px solid blue;">
@@ -60,57 +125,3 @@
     </div>
 </div>
  -->
- 
- <div layout="row" layout-wrap  ng-controller="houseHoldCtrl as hhCtrl" layout="column" ng-init ="hhCtrl.init();">
-  <div flex="15"></div>
-  <div flex="60">
-  	<md-content layout-padding="" layout-gt-sm="row">
-				<form name="userForm">
-					<div layout-sm="row">
-						<label>First name</label> &nbsp; &nbsp;
-						<md-input-container> <input
-							ng-model="user.firstName"> </md-input-container>
-					</div>
-					<div layout-sm="row">
-						<label>Last Name</label> &nbsp; &nbsp;
-						<md-input-container> <input ng-model="theMax">
-						</md-input-container>
-					</div>
-					<div layout-sm="row">
-
-						<label>Address</label> &nbsp; &nbsp;
-						<md-input-container> <input> </md-input-container>
-						&nbsp; &nbsp;
-						<md-input-container> <input> </md-input-container>
-					</div>
-					<div layout-sm="row">
-						<label>Text area</label> &nbsp; &nbsp;
-						<md-input-container> <textarea></textarea> </md-input-container>
-					</div>
-					<br>
-
-					<div layout-sm="row">
-						<label>check box</label> &nbsp; &nbsp;
-						<md-checkbox>item1</md-checkbox>
-						<md-checkbox>item2</md-checkbox>
-						<md-checkbox>item3</md-checkbox>
-					</div>
-
-					<div layout-sm="row">
-						<label>Text area</label> &nbsp; &nbsp;
-						<md-input-container> <textarea></textarea> </md-input-container>
-					</div>
-
-					<div layout-sm="row">
-						<label>text field</label> &nbsp; &nbsp;
-						<md-input-container> <input ng-model="theMax">
-						</md-input-container>
-					</div>
-				</form>
-			 
-			</md-content>
-  </div>
-  <div flex="25"></div>
-  
-</div>
-

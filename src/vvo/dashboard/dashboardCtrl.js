@@ -6,7 +6,7 @@ function dashBoardCtrl($mdSidenav,$rootScope) {
 
 	dbCtrl.init = function() {
 		$rootScope.isShowMenuIcon = false;
-		dbCtrl.toShow = "household";
+		dbCtrl.toShow = "home";
 	}
 	
 	dbCtrl.testPrint = function() {
